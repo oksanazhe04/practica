@@ -1,4 +1,4 @@
-def binary_search(sorted_list, target):
+def binary_search(sorted_list, item):
     low = 0
     high = len(sorted_list) - 1
 
@@ -6,21 +6,20 @@ def binary_search(sorted_list, target):
         mid = (low + high) // 2
         number = sorted_list[mid]
         
-        if number == target:
+        if number == item:
             return mid
-        elif number < target:
+        elif number < item:
             low = mid + 1
         else:
             high = mid - 1
     
-    return -1 
-
+    return None  
 sorted_list = list(range(1, 100))
-target = 68
+item = 68
 
-index = binary_search(sorted_list, target)
+task = binary_search(sorted_list, item)
 
-if index != -1:
-    print(f"Елемент {target} знайдено в позиції {index}.")
+if index is not None:
+    print(f"Елемент {item} знайдено в позиції {task}")
 else:
-    print(f"Елемент {target} не знайдено в списку.")
+    print(f"Елемент {item} не знайдено в списку")
