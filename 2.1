@@ -1,0 +1,35 @@
+def selection_sort(data):
+    current_index = 0
+    n = len(data)
+    
+    while current_index < n:
+        min_index = current_index
+        next_index = current_index + 1
+        
+            if data[next_index][1] < data[min_index][1]:
+                min_index = next_index
+            next_index += 1
+        
+        if min_index != current_index:
+            data[current_index], data[min_index] = data[min_index], data[current_index]
+        
+        current_index += 1
+    
+    return data
+
+data = [
+    ("ООП", 243),
+    ("Технології в бізнесі", 200),
+    ("Економетрика", 391),
+    ("Менеджмент", 147),
+    ("Маркетинг", 94),
+    ("Міжнародна економіка", 361),
+    ("ООМ", 75),
+    ("Англійська мова", 237),
+    ("Гроші та кредит", 450)
+]
+
+sorted_data = selection_sort(data)
+
+for item in sorted_data:
+    print(f"{item[0]} - {item[1]}")
