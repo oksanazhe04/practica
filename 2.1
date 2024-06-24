@@ -1,19 +1,14 @@
 def selection_sort(data):
-    current_index = 0
     n = len(data)
     
-    while current_index < n:
-        min_index = current_index
-        next_index = current_index + 1
+    for i in range(n):
+        min_index = i
         
-            if data[next_index][1] < data[min_index][1]:
-                min_index = next_index
-            next_index += 1
+        for j in range(i + 1, n):
+            if data[j][1] < data[min_index][1]:
+                min_index = j
         
-        if min_index != current_index:
-            data[current_index], data[min_index] = data[min_index], data[current_index]
-        
-        current_index += 1
+        data[min_index], data[i] = data[i], data[min_index]
     
     return data
 
